@@ -6,13 +6,17 @@ for (const width of [360, 390, 768, 1440, 1920]) {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
     await expect(page.getByRole('heading', { name: 'EvidenceLab', exact: true })).toBeVisible();
     await expect(page.locator('#terminal-preview')).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const heights = [];
     for (const tab of ['Research', 'Report', 'Workspace']) {
       await page.getByRole('tab', { name: tab, exact: true }).click();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      heights.push(await page.locator('#terminal-preview').evaluate(element => element.getBoundingClientRect().height));
     }
+    expect(Math.max(...heights) - Math.min(...heights)).toBeLessThan(1);
     expect(errors).toEqual([]);
     await page.screenshot({ path: `test-results/landing-${width}.png`, fullPage: true });
   });

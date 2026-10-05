@@ -1,6 +1,6 @@
 # EvidenceLab Interactive CLI Research
 
-Date: 2026-10-05. Research performed by a GPT-6.1 Sol subagent and consolidated against the codebase. This is the original design recommendation. A subsequent implementation added the Rich + Questionary workspace, guided setup/launch, saved-run browsing, progress and recovery actions; see the README's Interactive Workspace section. Textual remains a future option.
+Date: 2026-10-05. Research performed by a GPT-6.1 Sol subagent and consolidated against the codebase. This is the original design recommendation. A subsequent implementation added the Rich + Questionary workspace, guided setup/launch, saved-run browsing, progress and recovery actions; see the README's Quick Start section. Textual remains a future option.
 
 ## Recommendation
 
