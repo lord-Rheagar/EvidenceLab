@@ -1,16 +1,14 @@
 # EvidenceLab
 
-Technical research from your terminal, with your choice of model and evidence you can inspect.
-
 EvidenceLab plans a research question, collects documents, retrieves relevant passages with Elasticsearch, reviews gaps, and saves a cited report. Use the interactive workspace or ordinary commands. Jev reranking is optional.
 
 [Landing page](https://lord-rheagar.github.io/EvidenceLab/) · [Getting started](#quick-start) · [Command reference](#commands) · [Detailed guide](docs/reference.md)
 
-> Early-stage portfolio project, version 0.1.0. The workflow is sequential and bounded. Conversational follow-up and autonomous research subagents are not implemented.
+
 
 ![EvidenceLab interactive workspace preview](site/public/workspace-preview.png)
 
-The [landing page](https://lord-rheagar.github.io/EvidenceLab/) includes an interactive, illustrative preview. Research runs in your terminal.
+
 
 ## What You Can Do
 
@@ -367,4 +365,4 @@ Source layout: `src/evidencelab/cli.py` is the command interface; `interactive*.
 
 Read the [full technical reference](docs/reference.md) for schemas, service checks, request limits, and scoring validation.
 
-Inspired by Elastic's [Deep Agents research pipeline](https://www.elastic.co/search-labs/blog/deep-agents-langchain-elasticsearch-research-pipeline). EvidenceLab adds model profiles, an interactive terminal workflow, durable resume, strict snapshot-backed citations, and optional Jev reranking.
+
