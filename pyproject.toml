@@ -1,0 +1,80 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "evidencelab"
+version = "0.1.0"
+description = "A technical research CLI with inspectable evidence and user-selected models."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiosqlite>=0.22.1",
+    "deepagents>=0.7.21",
+    "elasticsearch>=9,<10",
+    "filelock>=4.0.10",
+    "httpx>=0.28.1",
+    "keyring>=25.7.0",
+    "langchain>=1.4.3",
+    "langchain-anthropic>=1.7.5",
+    "langchain-core>=1.6.6",
+    "langchain-google-genai>=4.4.0",
+    "langchain-openai>=1.6.7",
+    "langchain-openrouter>=0.2.9",
+    "langgraph>=1.2.12",
+    "langgraph-checkpoint-sqlite>=3.1.1",
+    "platformdirs>=4.12.3",
+    "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
+    "pypdf[fonts]>=6.19.0",
+    "python-dotenv>=1.2.4",
+    "questionary>=2.1,<3",
+    "rich>=15.0.0",
+    "tavily-python>=0.8.4",
+    "tenacity>=9.1.4",
+    "tomli-w>=1.2.0",
+    "trafilatura>=2.3.0",
+    "typer>=0.27.2",
+    "typesafe-sdk>=0.7.2",
+]
+
+[project.scripts]
+evidence = "evidencelab.cli:app"
+
+[project.urls]
+Homepage = "https://lord-rheagar.github.io/EvidenceLab/"
+Repository = "https://github.com/lord-Rheagar/EvidenceLab"
+Documentation = "https://github.com/lord-Rheagar/EvidenceLab#quick-start"
+Issues = "https://github.com/lord-Rheagar/EvidenceLab/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/evidencelab"]
+
+[tool.uv]
+link-mode = "copy"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/evidencelab"]
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "pytest-cov>=7.1.0",
+    "respx>=0.23.1",
+    "ruff>=0.16.10",
+]
